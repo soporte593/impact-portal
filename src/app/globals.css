@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core Colors - Avista Style */
+  --background: #0d0d0d;
+  /* Deep Black */
+  --foreground: #ffffff;
+
+  /* Primary Accents */
+  --primary: #4f46e5;
+  /* Electric Indigo */
+  --secondary: #ec4899;
+  /* Vibrant Pink */
+  --accent: #f59e0b;
+  /* Amber */
+
+  /* Surface Colors */
+  --card: #171717;
+  /* Slightly lighter black */
+  --card-foreground: #ffffff;
+  --border: #262626;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  /* Elegant headings */
+}
+
+
+:root {
+  /* Legacy Theme Constants (Preserved for Influencer Pages) */
+  --agency-bg: #0a0a0a;
+  --agency-fg: #ededed;
+  --mixtape-bg: #121212;
+  --mixtape-fg: #f5f5f5;
+  --mixtape-texture: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Optional Light Mode (High Contrast) */
+    --background: #ffffff;
+    --foreground: #0d0d0d;
+    --card: #f5f5f5;
+    --border: #e5e5e5;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-ghost-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes aurora {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-aurora {
+  animation: aurora 60s linear infinite;
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* Theme Utilities */
+.theme-agency {
+  background-color: var(--agency-bg);
+  color: var(--agency-fg);
+}
+
+.theme-mixtape {
+  background-color: var(--mixtape-bg);
+  color: var(--mixtape-fg);
+  background-image: var(--mixtape-texture);
+}
+
+/* Premium Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(to right, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
