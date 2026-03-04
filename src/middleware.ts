@@ -45,10 +45,10 @@ export default async function middleware(req: NextRequest) {
   if (subdomain) {
     console.log(`Middleware: Routing to Influencer Page (Subdomain: ${subdomain})`);
     return NextResponse.rewrite(
-      new URL(`/(influencer)/${subdomain}${url.pathname}`, req.url)
+      new URL(`/${subdomain}${url.pathname}`, req.url)
     );
   } else {
     console.log("Middleware: Routing to Agency Home");
-    return NextResponse.rewrite(new URL(`${url.pathname}`, req.url));
+    return NextResponse.next();
   }
 }
